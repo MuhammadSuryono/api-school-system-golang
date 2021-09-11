@@ -1,5 +1,8 @@
 # syntax=docker/dockerfile:1
 
+##
+## Build
+##
 FROM golang:1.16-alpine
 WORKDIR /app
 COPY go.mod ./
@@ -8,4 +11,20 @@ RUN go mod download
 COPY . ./
 RUN go build -o /api-school-system
 EXPOSE 8080
-CMD ["/api-school-systen"]
+CMD ["/api-school-system"]
+
+
+##
+## Deploy
+##
+FROM gcr.io/distroless/base-debian10
+
+WORKDIR /
+
+COPY --from=build /api-school-system /api-school-system
+
+EXPOSE 8080
+
+USER nonroot:nonroot
+
+ENTRYPOINT ["/docker-gs-ping"]
