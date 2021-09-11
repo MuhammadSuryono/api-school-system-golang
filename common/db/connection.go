@@ -1,6 +1,9 @@
 package db
 
 import (
+	memberalumni "github.com/MuhammadSuryono/siakad-api-golang/model/alumni/member-alumni"
+	"github.com/MuhammadSuryono/siakad-api-golang/model/school"
+	"github.com/MuhammadSuryono/siakad-api-golang/model/user"
 	"os"
 
 	"gorm.io/gorm"
@@ -26,4 +29,10 @@ func CreateConnection() {
 	} else if driver == "pgsql" {
 		conn.InitDatabasePostgre()
 	}
+}
+
+func MigrationDatabase() {
+	Connection.Query.AutoMigrate(&user.User{})
+	Connection.Query.AutoMigrate(&school.School{})
+	Connection.Query.AutoMigrate(&memberalumni.MemberAlumni{})
 }

@@ -1,4 +1,4 @@
-package siswa
+package eventsalumni
 
 import "github.com/MuhammadSuryono/siakad-api-golang/model/common"
 
