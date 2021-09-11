@@ -11,7 +11,7 @@ RUN go mod download
 COPY . ./
 RUN go build -o /api-school-system
 EXPOSE 8080
-CMD ["/api-school-system"]
+CMD ./api-school-system
 
 
 ##
@@ -27,4 +27,4 @@ EXPOSE 8080
 
 USER nonroot:nonroot
 
-ENTRYPOINT ["/api-school-system"]
+ENTRYPOINT ./api-school-system
