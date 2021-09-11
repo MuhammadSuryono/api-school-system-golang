@@ -1,7 +1,11 @@
 package common
 
 import (
+	"github.com/MuhammadSuryono/siakad-api-golang/model/school"
+	"os/user"
 	"time"
+
+	"github.com/MuhammadSuryono/siakad-api-golang/common/db"
 )
 
 type Agama struct {
@@ -28,4 +32,9 @@ type AuditKolom struct {
 	CreatedAt time.Time  `json:"created_at"`
 	UpdatedAt time.Time  `json:"updated_at"`
 	DeletedAt *time.Time `gorm:"index" json:"deleted_at" `
+}
+
+func MigrationDatabase() {
+	db.Connection.Query.AutoMigrate(&user.User{})
+	db.Connection.Query.AutoMigrate(&school.School{})
 }
