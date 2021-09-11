@@ -3,7 +3,7 @@
 ##
 ## Build
 ##
-FROM golang:1.16-alpine
+FROM golang:1.16-alpine AS build
 WORKDIR /app
 COPY go.mod ./
 COPY go.sum ./ 
@@ -27,4 +27,4 @@ EXPOSE 8080
 
 USER nonroot:nonroot
 
-ENTRYPOINT ["/docker-gs-ping"]
+ENTRYPOINT ["/api-school-system"]
