@@ -4,6 +4,7 @@ import "github.com/MuhammadSuryono/siakad-api-golang/model/common"
 
 type MemberAlumni struct {
 	ID             int64  `json:"id" gorm:"primaryKey"`
+	AlumniId       int64  `json:"alumni_id"`
 	SchoolYearId   int64  `json:"school_year_id"`
 	Name           string `json:"name"`
 	GraduationYear string `json:"graduation_year"`
