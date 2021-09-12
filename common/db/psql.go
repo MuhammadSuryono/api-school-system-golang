@@ -21,5 +21,7 @@ func (d *databaseHandler) InitDatabasePostgre() {
 		panic(fmt.Sprintf("failed to connect database with setting: %s", args))
 	}
 
+	fmt.Println("DATABASE IS CONNECTED")
+
 	Connection = connection{Query: db}
 }
